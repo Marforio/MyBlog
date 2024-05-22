@@ -30,9 +30,6 @@ def home():
     return render_template("index.html", data={
         "now": datetime.now(),
         "page_visit": PageVisit(),
-        "banner_colors": {
-            "display": banner_colors,
-            "js" : json.dumps(banner_colors)
-        }
-    })
+        "banner_colors": BannerColors().get_colors()
+        })
 
