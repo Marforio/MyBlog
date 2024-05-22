@@ -20,7 +20,7 @@ ENV/
 media/
 
 # Static files
-static/
+#static/
 
 # Secret keys and credentials
 *.env
