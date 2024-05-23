@@ -1,17 +1,14 @@
-from flask import Flask, render_template
+from flask import render_template
 from datetime import datetime
-import json
 from random import sample
-
-app = Flask(__name__)
+from . import intro_bp
 
 class PageVisit:
     COUNT = 0
-
     def counts(self):
         PageVisit.COUNT += 1
         return PageVisit.COUNT
-
+    
 class BannerColors:
     COLORS = [
         "lightcoral", "salmon", "red", "firebrick", "pink",
@@ -23,13 +20,15 @@ class BannerColors:
 
     def get_colors(self):
         return sample(BannerColors.COLORS, 5)
-
-@app.route("/box/")
+    
+@intro_bp.route("/")
 def home():
-    banner_colors = BannerColors().get_colors()
     return render_template("index.html", data={
         "now": datetime.now(),
         "page_visit": PageVisit(),
         "banner_colors": BannerColors().get_colors()
         })
 
+@intro_bp.route("/about")
+def about():
+    return render_template("about.html")
