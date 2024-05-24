@@ -1,3 +1,6 @@
+# toml file with secret key
+.secrets.toml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

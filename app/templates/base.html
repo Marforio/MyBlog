@@ -11,6 +11,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
     <title>Dog's Blog</title>
     {% block styles %}
     <style>
@@ -41,7 +44,14 @@
     </div>
     <main class="flex-shrink-0">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand ml-2" href="{{ url_for('intro_bp.home') }}">MyBlog<a>
+            <a class="navbar-brand ml-2" href="{{ url_for('intro_bp.home') }}">
+                <img
+                    src="{{url_for('static', filename='images/myblog_brand_icon.svg')}}"
+                    alt=""
+                    width="30"
+                    height="24"
+                />
+            MyBlog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">

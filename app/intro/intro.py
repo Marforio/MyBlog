@@ -1,6 +1,7 @@
 from flask import render_template
 from datetime import datetime
 from random import sample
+from logging import getLogger
 from . import intro_bp
 
 class PageVisit:
@@ -20,9 +21,12 @@ class BannerColors:
 
     def get_colors(self):
         return sample(BannerColors.COLORS, 5)
-    
+
+logger = getLogger(__file__)
+
 @intro_bp.route("/")
 def home():
+    logger.debug("rendering home page")
     return render_template("index.html", data={
         "now": datetime.now(),
         "page_visit": PageVisit(),
@@ -31,4 +35,5 @@ def home():
 
 @intro_bp.route("/about")
 def about():
+    logger.debug("rendering about page")
     return render_template("about.html")
